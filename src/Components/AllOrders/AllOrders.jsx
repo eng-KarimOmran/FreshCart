@@ -17,7 +17,7 @@ export default function AllOrders() {
         {
           orders.map((bill , i)=>(
           <div key={i} className="border-2 rounded-lg p-5 bg-slate-100">
-            <div className="text-center text-2xl py-2">The Bill {i}</div>
+            <div className="text-center text-2xl py-2">The Bill {i + 1}</div>
             <div onClick={()=>{setToggil(i)}} className="my-2 bg-gray-50 flex justify-between items-center p-5 rounded-md flex-wrap hover:cursor-pointer hover:shadow-lg transition-all duration-500">
               <div className="flex gap-4 flex-col">
                 <div>Delivery status : <span className={bill.isDelivered ? 'text-green-400' : 'text-red-400'}>{bill.isDelivered ? 'Delivered' : 'Not delivered'}</span></div>
