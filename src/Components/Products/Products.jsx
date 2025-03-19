@@ -31,7 +31,6 @@ export default function Products() {
     const WishlistId = response.data.data.map((product)=>(product.id))
     setProductWishlist(WishlistId)
   }
-  useEffect(()=>{HandleGetWishlist()},[])
   return (
     <>
       <div className="container">

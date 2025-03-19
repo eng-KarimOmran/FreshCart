@@ -1,13 +1,16 @@
-import { useContext , useState } from 'react'
+import { useContext , useEffect, useState } from 'react'
 import { Link, NavLink} from 'react-router-dom'
 import logo from '../../assets/freshcart-logo.svg'
 import { FaShoppingCart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 import { PiListBold } from "react-icons/pi";
 import { UserStatus } from '../Context/UserStatus';
 import { cartContext } from '../Context/CartFu';
+import { wishlistContext } from '../Context/wishlistFu';
 export default function Navbar() {
     const {data , isLoading} = useContext(cartContext)
     const {isLogin , setToken} = useContext(UserStatus)
+    const { numWishList } = useContext(wishlistContext);
     const [ToggleNav, setToggleNav] = useState(false)
     return (
     <>
@@ -34,13 +37,19 @@ export default function Navbar() {
                 <li><NavLink onClick={()=>{setToggleNav(!ToggleNav)}} to={'/brands'}>Brands</NavLink></li>
               </ul>
               <ul className='flex gap-3 w-full flex-col items-center lg:gap-4 lg:w-auto lg:flex-row lg:items-start lg:ms-auto'>
-                <li>
+                <li className='flex gap-3'>
                   <Link onClick={()=>{setToggleNav(!ToggleNav)}} to={'/cart'}>
                     <div className='relative max-h-6 max-w-7'>
                       <div className='max-h-[20px] max-w-[25px] bg-green-500 p-1 rounded-[5px] absolute top-0 right-0 flex justify-center items-center translate-x-1/2 -translate-y-1/4 text-white text-sm'>{isLoading ? '..' : data.data.numOfCartItems}</div>
                       <FaShoppingCart className='text-2xl' />
                     </div>
                   </Link>
+                  <Link onClick={()=>{setToggleNav(!ToggleNav)}} to={'/wishList'}>
+                      <div className='relative max-h-6 max-w-7'>
+                        <div className='max-h-[20px] max-w-[25px] bg-green-500 p-1 rounded-[5px] absolute top-0 right-0 flex justify-center items-center translate-x-1/2 -translate-y-1/4 text-white text-sm'>{numWishList == null ? '..' : numWishList}</div>
+                        <FaHeart className='text-2xl text-red-500' />
+                      </div>
+                    </Link>
                 </li>
                 <li>
                   <button onClick={()=>{
