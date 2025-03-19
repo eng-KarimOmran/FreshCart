@@ -9,7 +9,6 @@ export default function AllOrders() {
   async function HandelGetOrdersUser() {
     const AllOrder = await getOrdersUser();
     setOrders(AllOrder.data);
-    console.log(AllOrder.data)
   }
   return (
     <>
