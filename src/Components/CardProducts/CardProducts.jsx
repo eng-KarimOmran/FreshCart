@@ -104,7 +104,7 @@ export default function CardProducts({ data , IsWishlist }) {
             HandleAddWishlist(data.id)
           }
           }} className="text-end py-1">
-            <FaHeart className={`inline text-3xl ${loadingwishlist ? "text-gray-500" : (isWishlist ? 'text-red-500' : 'text-black') }`} />
+            <FaHeart className={`inline text-3xl ms-1 ${loadingwishlist ? "text-gray-500" : (isWishlist ? 'text-red-500' : 'text-black') }`} />
           </button>
         </div>
       </div>

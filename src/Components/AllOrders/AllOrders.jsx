@@ -30,10 +30,10 @@ export default function AllOrders() {
               {
                 bill.cartItems.map((item)=>(
                 <div key={item._id} className="flex items-center border-b-2 pb-3">
-                  <img className="max-w-[150px]" src={item.product.imageCover} alt="" />
+                  <img className="max-w-[100px]" src={item.product.imageCover} alt="" />
                   <div className="flex flex-col gap-3 ms-2">
-                    <div>{item.product.title.split(" ", 2).join(" ")}</div>
-                    <p>{item.product.title}</p>
+                    <div>{item.product.title.split(" ", 3).join(" ")}</div>
+                    <p>{item.count} Pieces</p>
                     <div>{item.price} EGP</div>
                   </div>
                 </div>))
